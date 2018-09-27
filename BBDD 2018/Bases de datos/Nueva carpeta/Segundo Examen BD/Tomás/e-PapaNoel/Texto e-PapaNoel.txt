@@ -1,0 +1,36 @@
+Santa Claus decide incluir tecnología en el procesamiento de regalos para aumentar la productividad y despedir a 1.500 duendes, para lo que necesita
+un sistema de información que gestione las peticiones y distribución de regalos.
+
+Las personas, especielmente niñes, escriben cartas a Santa Claus cada navidad diciéndole que se han portado bien y pidiéndole regalos.
+Al recibir la carta, se graban las peticiones y se investiga la veracidad de la información sobre su comportamiento.
+Para ello se consulta con sus padres o tutores, vecinos, maestros.
+Necesitamos saber 
+
+De todas estas personas se guardan sus datos personales, incluyendo fecha de nacimiento.
+Necesitamos saber que personas pueden darnos información sobre otras.
+
+Algunas personas cometen buenas o malas acciones que son relevantes para el informe.
+Estas acciones se graban en la base de datos indicando en qué consisten, la fecha y el lugar en el que sucedieron.
+Si las acciones son malas queremos saber si fueron contra la ley, su coste económico y las personas a las que perjudicaron.
+De las buenas acciones nos interesa saber si han tenido alguna recompensa y en qué periódico se publicó la noticia (si corresponde).
+Nos interesa conocer el motivo que empujó a cada una de las personas protagonistas de la acción (buena o mala) a llevarla a cabo.
+
+Tras estudiar los informes de conducta, Papa Noel decide qué peticiones son aceptadas o rechazadas y graba esa información en la base de datos.
+
+Las peticiones se refieren a productos concretos (el barco pirata de los clicks) o a categorías de productos (una bicicleta de paseo).
+En el segundo caso, queremos saber qué productos entran dentro de cada categoría.
+Algunos productos tienen productos alternativos, por si no podemos conseguir el original.
+
+Santa Claus encarga los regalos a diferentes tiendas y proveedores.
+Para ello necesita saber qué productos vende cada uno.
+El proveedor o tienda tendrá un nombre, datos de contacto y un índice de valoración, que se actualiza cuando trabajamos con él positiva o negativamente.
+
+Un pedido a un proveedor normalmente se compone de un número grande de productos, que irán destinados a distintas peticiones.
+En un pedido pueden incluirse unidades de productos diferentes.
+
+Santa prepara miles de rutas de reparto para la Nochebuena.
+Cada ruta tiene asignada un área geográfica, que incluirá varias personas que vivan en la misma zona.
+Santa Claus carga en el trineo todas las peticiones correspondientes a una ruta, se desplaza hasta la zona de reparto y deja los regalos en casa de cada persona.
+Luego vuelve al Polo Norte y carga los regalos de la siguiente ruta.
+Santa Claus tiene el poder de modificar el continuo espacio-tiempo.
+Gracias a eso le da tiempo en Nochebuena de repartir millones de regalos.

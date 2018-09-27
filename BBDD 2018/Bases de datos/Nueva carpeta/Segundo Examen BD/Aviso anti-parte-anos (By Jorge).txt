@@ -1,0 +1,19 @@
+Leo sabe de sobra que sabeis escribir 1000 veces create table etc etc
+
+LO IMPORTANTE SON LAS CARDINALIDADES, UNIQUES ETC, 
+no espereis aprobar creando todas las tablas y relacionandolas
+
+Tened tambien un poco de inventiva con las ID, varchar etc,
+
+Pensad en los nombres de calles largas, nombres compuestos ...
+
+Poned ID's distintas, que el varchar (5) o todo a int es repetitivo. Si es primary key no varchar sino char(N)
+
+Intentad poned varchar  de distintas longuitudes, smallints, time cuando pida hora,
+date cuando ponga fecha, datetime si te pide ambos...
+
+
+
+Besiwis de frambuesa garrapiñada para todos y suerte.
+
+

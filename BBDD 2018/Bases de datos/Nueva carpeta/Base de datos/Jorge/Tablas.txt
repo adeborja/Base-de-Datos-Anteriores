@@ -1,0 +1,4 @@
+Comunidades(ID, Nombre, Poblacion, Superficie, ID_Localidad UNIQUE)
+Provincia(CP, Nombre, Superficie, Poblacion, ID_Comunidad, ID_Localidad UNIQUE)
+Localidad(ID, Nombre, Poblacion, ID_Provincia)
+

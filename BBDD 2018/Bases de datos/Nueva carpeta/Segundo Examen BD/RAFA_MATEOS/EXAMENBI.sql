@@ -1,0 +1,189 @@
+CREATE DATABASE ACUARIO
+GO
+
+USE ACUARIO
+GO
+
+CREATE TABLE SER_VIVO(
+	ESPECIE VARCHAR(25) NULL
+	,TEMP_MAX VARCHAR(15) NULL
+	,TEM_MINIMA VARCHAR(15) NULL
+	,ID SMALLINT NOT NULL
+		,CONSTRAINT PK_SER_VIVO PRIMARY KEY (ID)--añadir nombre
+)
+--Primera forma normal : La cumple
+--Segunda forma normal: La cumple
+--Tercera forma normal: La cumple
+
+CREATE TABLE BOMBA(
+	ID SMALLINT NOT NULL
+	--,MARCA VARCHAR (20) NULL
+	,MODELO VARCHAR (30) NULL
+	,CAUDAL VARCHAR (25) NULL
+	,CONSUMO VARCHAR (20) NOT NULL
+		,CONSTRAINT PK_BOMBA PRIMARY KEY (ID)
+)
+--Primera forma normal : La cumple
+--Segunda forma normal: La cumple
+--Tercera forma normal: Quitamos el campo marca y ya cumple la 3 forma normal
+
+
+
+CREATE TABLE ACUARIO_SOCIO (
+	CAPACIDAD TINYINT NULL
+	,DIMENSIONES VARCHAR(20) NULL
+	,TEMPERATURA VARCHAR(15) NULL
+	,ID_BOMBA SMALLINT NOT NULL --FK DE BOMBA
+	,ID SMALLINT NOT NULL
+	,NUMSOCIO SMALLINT NOT NULL UNIQUE
+	,NOMBRE VARCHAR(40) NULL
+	,APELLIDOS VARCHAR (40) NULL
+	,DIRECCION VARCHAR (35) NULL
+	,EMAIL VARCHAR (30) NULL
+	--,TELEFONO CHAR(6) NULL
+		,CONSTRAINT PK_ACUARIO_SOCIO PRIMARY KEY (ID)
+)
+
+--Primera forma normal : la cumple al quitar el campo telefono
+--Segunda forma normal: La cumple
+--Tercera forma normal: La cumple
+
+
+CREATE TABLE PLANTAS(
+	--NOMBRE VARCHAR(25) NULL
+	TAMAÑO_MAX VARCHAR(15) NULL
+	,NECESIDAD_LUZ SMALLINT NULL
+	,ID SMALLINT NOT NULL --Fk de servivo
+		,CONSTRAINT PK_PLANTA PRIMARY KEY (ID)
+)
+
+--Primera forma normal : La cumple
+--Segunda forma normal: La cumple
+--Tercera forma normal: La cumple
+
+
+CREATE TABLE PEZ(
+	--COLOR VARCHAR(15) NULL
+	--,NOMBRE VARCHAR(40) NULL
+	--,TIPO VARCHAR(25) NULL 
+	,TAMAÑO VARCHAR(25) NULL
+	,ID SMALLINT NOT NULL --Fk de servivo
+	,ID_ALIMENTO SMALLINT NOT NULL
+		,CONSTRAINT PK_PEZ PRIMARY KEY (ID)
+)
+
+--Primera forma normal : -------------------------------------
+--Segunda forma normal: La cumple
+--Tercera forma normal: Al quitar ek campo tipo cumple la 3 forma normal
+
+
+CREATE TABLE TIERRAS(
+	NOMBRE VARCHAR(40) NULL
+	--,MEZCLA VARCHAR(10) NULL
+	,ID SMALLINT NOT NULL
+		,CONSTRAINT PK_TIERRA PRIMARY KEY (ID)
+)
+
+--Primera forma normal : La cumple al quitar el campo mezcla ya que el multivaluado
+--Segunda forma normal: La cumple
+--Tercera forma normal: La cumple
+
+
+CREATE TABLE ALIMENTOS(
+	--TIPO VARCHAR(20) NULL
+	,NOMBRE VARCHAR(40) NULL
+	,VALOR_ENERGETICO VARCHAR(15) NULL
+	,ID SMALLINT NOT NULL
+		,CONSTRAINT PK_ALIMENTO PRIMARY KEY (ID)
+)
+
+--Primera forma normal : La cumple
+--Segunda forma normal: La cumple
+--Tercera forma normal: La cumple al quitar el campo tipo
+
+
+CREATE TABLE SERVIVO_ACUARIO (
+	ID SMALLINT NOT NULL
+	,CANTIDAD_INDIVIDUOS TINYINT NULL
+		,CONSTRAINT PK_SERVIVO_ACUARIO PRIMARY KEY (ID)
+)
+
+--Primera forma normal : La cumple
+--Segunda forma normal: La cumple
+--Tercera forma normal: La cumple
+
+CREATE TABLE PLANTA_TIERRA(
+	ID_PLANTA SMALLINT NOT NULL --FK DE PLANTA
+	,ID_TIERRA SMALLINT NOT NULL --FK DE TIERRA
+		,CONSTRAINT PK_PLANTA_TIERRA PRIMARY KEY (ID_PLANTA,ID_TIERRA)
+)
+--Primera forma normal : La cumple
+--Segunda forma normal: La cumple
+--Tercera forma normal: La cumple
+
+
+CREATE TABLE PEZ_ALIMENTO(
+	ID_PEZ SMALLINT NOT NULL --FK DE PEZ
+	,ID_ALIMENTO SMALLINT NOT NULL --FK DE ALIMENTO
+		,CONSTRAINT PK_PEZ_ALIMENTO PRIMARY KEY (ID_PEZ,ID_ALIMENTO)
+)
+
+--Primera forma normal : La cumple
+--Segunda forma normal: La cumple
+--Tercera forma normal: La cumple
+
+
+CREATE TABLE PEZ_INCOMPATIBLE_PEZ(
+	ID_PEZ_1 SMALLINT NOT NULL --FK DE PEZ
+	,ID_PEZ_2 SMALLINT NOT NULL --FK DE PEZ
+		,CONSTRAINT PK_PEZ_INCOMPATIBLE_PEZ PRIMARY KEY(ID_PEZ_1, ID_PEZ_2)
+)
+
+--Primera forma normal : La cumple
+--Segunda forma normal: La cumple
+--Tercera forma normal: La cumple
+
+
+--AÑADIMOS LAS CLAVES AJENAS
+
+ALTER TABLE ACUARIO_SOCIO ADD CONSTRAINT FK_ACUARIO_SOCIO_BOMBA FOREIGN KEY (ID_BOMBA) REFERENCES BOMBA(ID)
+ALTER TABLE PLANTA_TIERRA ADD CONSTRAINT FK_PLANTA_TIERRA_PLANTA FOREIGN KEY (ID_PLANTA) REFERENCES PLANTA(ID)
+ALTER TABLE PLANTA_TIERRA ADD CONSTRAINT FK_PLANTA_TIERRA_TIERRA FOREIGN KEY (ID_TIERRA) REFERENCES TIERRA(ID)
+ALTER TABLE PEZ_ALIMENTO ADD CONSTRAINT FK_PEZ_ALIMENTO_PEZ FOREIGN KEY (ID_PEZ) REFERENCES PEZ(ID)
+ALTER TABLE PEZ_ALIMENTO ADD CONSTRAINT FK_PEZ_ALIMENTO_ALIMENTO FOREIGN KEY (ID_ALIMENTO) REFERENCES ALIMENTO(ID)
+ALTER TABLE PEZ_INCOMPATIBLE_PEZ ADD CONSTRAINT FK_PEZ_INCOMPATIBLE_PEZ_PEZ FOREIGN KEY (ID_PEZ_1) REFERENCES PEZ(ID)
+ALTER TABLE PEZ_INCOMPATIBLE_PEZ ADD CONSTRAINT FK_PEZ_INCOMPATIBLE_PEZ_PEZ1 FOREIGN KEY (ID_PEZ_2) REFERENCES PEZ(ID)
+
+--AÑADIMOS LOS CHECKS
+
+--Una vez creadas las tablas, incluye las siguientes restricciones
+--· Las dimensiones del acuario no pueden ser negativas.
+--· La temperatura del acuario debe estar entre 10 y 30º.
+--· El atributo “tipo” de los peces puede tomar uno de los siguientes valores: T, R, P, S, A o
+--L.
+--· La necesidad de luz de las plantas mide el número de horas que necesitan luz directa
+--y es un valor entre 4 y 10.
+--· Una especie no puede ser incompatible con ella misma.
+--· Los porcentajes de arcillas, silicatos, nitratos, sustratos y otros sumados deben ser
+--igual a 100.
+--· Dos socios no pueden tener el mismo email
+
+ALTER TABLE ACUARIO_SOCIO ADD CONSTRAINT CK_ACUARIO CHECK (DIMENSIONES > 0)
+ALTER TABLE ACUARIO_SOCIO ADD CONSTRAINT CK_ACUARIO_TEMP CHECK (TEMPERATURA BETWEEN 10 AND 30)
+ALTER TABLE PEZ ADD CONSTRAINT CK_PEZ CHECK (TIPO IN ('T','R','P','S','A','L'))
+ALTER TABLE PLANTA ADD CONSTRAINT CK_PLANTA CHECK (NECESIDAD_LUZ BETWEEN 4 AND 10)
+ALTER TABLE PEZ_INCOMPATIBLE_PEZ ADD CONSTRAINT CK_PEZ_INCOMPATIBLE_PEZ CHECK (ID_PEZ_1 != ID_PEZ_2)
+ALTER TABLE TIERRA ADD CONSTRAINT CK_TIERRA CHECK (MEZCLA BETWEEN 0 AND 100)
+ALTER TABLE TIERRA ADD CONSTRAINT CK_TIERRA CHECK (arcillas + silicatos + nitratos + sustratos + otros = 100)
+ALTER TABLE ACUARIO_SOCIO ADD CONSTRAINT UQ_ACUARIO_SOCIO UNIQUE (EMAIL)
+
+
+/*4.
+A)INCLUMPIRIAMOS LA PRIMERA FORMAR NORMAL YA QUE TENDRIMOS UN ATRIBUTO MULTIVALUADO
+B)CREAMOS UNA TABLA COLORES , QUE TENGA COLOR DEL PEZ E ID DEL PEZ RELACIANADA CON PEZ Y ASI SOLUCIONAMOS EL PROBLEMA
+*/
+
+/*5.
+No podriamos saberlo con este modelo.
+Deberiamos relacionar la entidad tierra con la entidad ACUARIO
+*/

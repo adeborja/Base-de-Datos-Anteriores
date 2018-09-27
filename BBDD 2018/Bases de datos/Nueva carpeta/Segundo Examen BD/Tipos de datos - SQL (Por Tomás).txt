@@ -1,0 +1,36 @@
+TIPOS DE DATOS - SQL
+
+Tipos de datos de textos
+
+	CHAR(tamaño) ------> Cadena de longitud fija
+	VARCHAR(tamaño) ---> Cadena de longitud variable
+	TINYTEXT ----------> Longitud máxima fr 255 caracteres
+	TEXT --------------> Longitud máxima de 65.535 caracteres
+	LONGTEXT ----------> Longitud máxima de 4.294.967.295 caracteres
+
+Tipos de datos numéricos
+	
+	BIT ------------------> Solo tiene los valores 1, 0 o NULL (1 se suele utilizar para verdadero y 0 para falso)
+
+	SMALLMONEY -----------> Dato monetario de -214.748,3648 a 214.748,3647
+	MONEY ----------------> Dato monetario de -922.337.203.685.477,5808 a 922.337.203.685.477,5807
+	
+	TINYINT --------------> De -128 a 127
+	SMALLINT -------------> De -32768 to 32767
+	MEDIUMINT ------------> De -8388608 to 8388607
+	INT ------------------> De -2147483648 to 2147483647
+	BIGINT ---------------> De -9223372036854775808 to 9223372036854775807
+	FLOAT ----------------> De - 1,79E+308 a -2,23E-308, 0 y de 2,23E-308 a 1,79E+308
+	DECIMAL(tamaño,d) ----> "tamaño" es la cantidad de reales y decimales del número y "d" es la cantidad de decimales que tiene el número
+
+	EJEMPLO: DECIMAL(5,2) ---> 123,45
+
+Tipos de datos de fechas
+	
+	DATE ---------> Tiene un formato de 'YYYY-MM-DD' y tiene un rango de '1000-01-01' a '9999-12-31'
+	DATETIME -----> Tiene un formato de 'YYYY-MM-DD HH:MI:SS' y tiene un rango de '1000-01-01 00:00:00' a '9999-12-31 23:59:59'
+	TIMESTAMP ----> Tiene un formato de 'YYYY-MM-DD HH:MI:SS' y tiene un rango de '1970-01-01 00:00:01' a '2038-01-09 03:14:07' 
+	TIME ---------> Tiene un formato de 'HH:MI:SS' y tiene un rango de '-838:59:59' a '838:59:59'
+	YEAR ---------> Un año en formato de 2 dígitos o de 4.
+			Valores permitidos para 4 dígitos: de 1901 a 2155.
+			Valores permitidos para 2 dígitos: de 70 a 69 (de 1970 a 2069).

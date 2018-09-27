@@ -1,0 +1,12 @@
+Ejercicios sencillos
+Crea el diagrama E/R correspondiente a las siguientes especificaciones de datos. Las especificaciones son muy básicas, añade los datos que te parezcan razonables:
+
+ 
+
+1. Cada ayuntamiento tendrá un solo alcalde y un solo secretario municipal. Nos interesa el nombre y provincia del ayuntamiento y los nombres, apellidos y fecha de alta de los cargos.En el caso del alcalde nos interesa también saber su partido político y el número de votos que obtuvo su candidatura.
+2. Cada usuario del sistema de salud tendrá asignado un médico de cabecera. Ambos tendrán nombre y apellidos. Los ususarios se identifican por número de la Seguridad Social.
+3. Cada entrada para una función de teatro se vende a nombre de una única persona. La entrada se identifica por su fecha, fila y número de asiento. Las personas por su nombre y apellidos.
+4. En un vuelo, cada pasajero tiene asignado un asiento. El vuelo se identifica por un código y el pasajero tiene sus datos personales.
+5. En un asentamiento israelí de la franja de Gaza, un agricultor puede cultivar varias parcelas. En cada parcela sembrará un único tipo de planta (Levítico 19:19). Nos interesa el nombre de la planta y su época de siembra y de cosecha. El agricultor tendrá datos personales. Las parcelas tienen una referencia catastral y una dirección.
+6. Los políticos corruptos pueden tener uno o varios abogados en cada una de las causas en que estén imputados investigados, aunque algunos abogados los pueden representar en más de una. En cada juicio se les acusa de unos delitos concretos, que tendrán un nombre y un artículo del código penal. Los juicios se identifican por el nombre del juzgado y un código.
+7. En las asambleas ciudadanas, cada persona podrá votar afirmativa o negativamente una sola vez cada una de las propuestas que se presenten.

@@ -1,0 +1,41 @@
+Relacionales
+	= -----> Igual a
+	<> ----> No es igual a 
+	< -----> Menor que
+	> -----> Mayor que
+	<= ----> Menor o igual que
+	>= ----> Mayor o igual que
+
+	!= ----> No es igual a
+	!< ----> No es menor que
+	!> ----> No es mayor que
+
+Aritméticos
+	Suma -------------------> +
+	Resta ------------------> -
+	Multiplicación ---------> * 
+	División ---------------> /
+	Resto de la división ---> %  (como en Java)
+
+Asignación
+	=  (el == de Java)
+
+Concatenación de cadenas
+	+
+
+Lógicos
+	ALL -------> TRUE si el conjunto completo de comparaciones es TRUE
+	AND -------> TRUE si ambas expesiones son TRUE
+	OR --------> TRUE si alguna de las dos expresiones es TRUE
+	ANY -------> TRUE si cualquier miembro del conjunto de comparaciones es TRUE
+	BETWEEN ---> TRUE si está dentro del intervalo
+	NOT -------> Invierte el valor de otro operador booleano
+	SOME ------> TRUE si alguna de las comparaciones de un conjunto es TRUE
+	IN --------> TRUE si el operando es igual a uno de la lista de expresiones
+	LIKE ------> TRUE si el operatos coincide con el patrón
+
+	Patrones LIKE:
+		% -----------> Puedes ser cualquier cadena
+		_ -----------> Puede ser cualquier carácter (solo uno)
+		[patron] ----> Puede ser alguno de los caracteres del conjunto
+		[^patron] ---> Es el complementario de [patron]

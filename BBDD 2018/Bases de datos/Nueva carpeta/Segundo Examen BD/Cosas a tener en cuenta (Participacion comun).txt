@@ -1,0 +1,10 @@
+Las claves primarias compuestas se escriben al final de la tabla.
+
+Para hacer más fasi el paso a SQL recomiendo escribir todos los CONSTRAINT de FK como ALTERS después de crear todas las tablas.
+
+En una generalizacion si un atributo se repite en las dos entidades generalizadas(Ej: Persona / Hombre , mujer) si el atributo 
+nombre estuviera en hombre y mujer se debe poner en la entidad persona, ya que se repite en ambas
+
+En las entidades debiles la foreign key de la fuerte a la debil es ON UPDATE CASCADE ON DELETE CASCADE
+
+Las PRIMARY KEY  que sean cadenas no ponerlas como varchar sino como char de longitud fija

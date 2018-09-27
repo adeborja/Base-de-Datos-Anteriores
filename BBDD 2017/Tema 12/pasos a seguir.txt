@@ -1,0 +1,11 @@
+Restricciones SUPER CHECK
+	
+	Comprobar regla
+	Si se incumple
+		RAISERROR ('mensaje',1-16,1)
+		ROLLBACK
+	Fin Si
+
+Mantener datos redundantes
+
+	
